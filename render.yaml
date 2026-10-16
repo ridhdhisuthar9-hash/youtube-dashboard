@@ -1,0 +1,12 @@
+# Render.com blueprint (optional, for putting the app online). See DEPLOY_ONLINE.md
+services:
+  - type: web
+    name: channel-dashboard
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    healthCheckPath: /health
+    envVars:
+      - key: YOUTUBE_API_KEY
+        sync: false
